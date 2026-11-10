@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Кабінет УЗД у Смілі — вул. Соборна, 94</title>
+<meta name="description" content="Ультразвукова діагностика у Смілі для дорослих і дітей. Вул. Соборна, 94. Запис за телефоном 096 323 12 57.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f2a38;      /* глибокий графітово-синій, як корпус апарата */
+  --ink-2:#18394a;
+  --paper:#eef3f5;    /* холодний світлий, не кремовий */
+  --white:#ffffff;
+  --sonar:#8fa9b6;    /* сірий екранний */
+  --signal:#5fc4cf;   /* бірюзовий курсор вимірювання */
+  --text:#16242c;
+  --muted:#56707c;
+  --line:#d6e0e4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Onest',system-ui,sans-serif;background:var(--paper);color:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* header */
+.top{position:absolute;inset:0 0 auto 0;z-index:5}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{color:#fff;text-decoration:none;font-weight:600;font-size:17px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.brand svg{width:26px;height:26px}
+.top nav{display:flex;gap:28px}
+.top nav a{color:#c4d5dc;text-decoration:none;font-size:15px}
+.top nav a:hover{color:#fff}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:140px 0 72px}
+.hero .wrap{display:block}
+.hero h1{max-width:14ch;font-size:clamp(36px,5.4vw,64px);line-height:1.04;font-weight:600;letter-spacing:-.035em}
+.hero p{color:#b9cbd3;font-size:19px;margin-top:22px;max-width:30ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px;transition:background .2s,color .2s}
+.btn-main{background:var(--signal);color:var(--ink)}
+.btn-main:hover{background:#7fd5de}
+.btn-line{border:1px solid #3b5d6e;color:#fff}
+.btn-line:hover{background:var(--ink-2)}
+
+/* the scan */
+.scan{position:relative;aspect-ratio:1/0.82;width:100%}
+.scan svg{width:100%;height:100%;display:block}
+.scan .readout{position:absolute;left:0;bottom:-6px;display:flex;gap:22px;font-size:13px;color:var(--sonar);font-variant-numeric:tabular-nums}
+.scan .readout b{color:#e6f2f5;font-weight:500}
+
+.strip{background:var(--ink-2);color:#cfe0e6}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.strip div{padding:22px 0;border-left:1px solid #2c4c5c;padding-left:22px}
+.strip div:first-child{border-left:0;padding-left:0}
+.strip small{display:block;color:var(--sonar);font-size:13px}
+.strip a{text-decoration:none}
+
+section{padding:96px 0}
+.head{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;margin-bottom:48px;align-items:end}
+h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1;font-weight:600;letter-spacing:-.025em}
+.head p{color:var(--muted);max-width:52ch}
+
+/* exams: list with organ names, not cards */
+.exams{border-top:1px solid var(--line)}
+.exam{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;padding:26px 0;border-bottom:1px solid var(--line)}
+.exam h3{font-size:22px;font-weight:500;letter-spacing:-.015em}
+.exam p{color:var(--muted)}
+
+/* doctors */
+.docs{background:var(--white)}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.doc{border:1px solid var(--line);border-radius:22px;padding:34px;display:flex;gap:22px;align-items:flex-start}
+.mono{flex:none;width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--signal);display:grid;place-items:center;font-weight:600;font-size:20px;letter-spacing:.02em}
+.doc h3{font-size:22px;font-weight:600;letter-spacing:-.015em;line-height:1.25}
+.doc p{color:var(--muted);margin-top:6px}
+
+/* prices */
+.price-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:40px}
+#price-list{list-style:none}
+#price-list li{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:18px}
+#price-list .dots{flex:1;border-bottom:1px dotted #9fb3bd;transform:translateY(-5px)}
+#price-list .v{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.aside{color:var(--muted);font-size:15px}
+.aside p+p{margin-top:12px}
+
+/* preparation — real sequence before the visit */
+.prep{background:var(--ink);color:#fff}
+.prep .head p{color:#b9cbd3}
+.prep ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:s}
+.prep li{border-top:1px solid #36586a;padding-top:22px;counter-increment:s}
+.prep li:before{content:counter(s);display:block;color:var(--signal);font-size:44px;font-weight:300;line-height:1;margin-bottom:16px}
+.prep h3{font-size:20px;font-weight:600;margin-bottom:6px}
+.prep p{color:#b9cbd3}
+
+/* contacts */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+.big-phone{font-size:clamp(30px,4vw,46px);font-weight:600;letter-spacing:-.02em;text-decoration:none;display:block;line-height:1.1}
+.contact-grid small{display:block;color:var(--muted);font-size:14px;margin-bottom:10px}
+.contact-grid .alt a{display:block;text-decoration:none;font-size:18px;margin-top:4px}
+.hours div{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:8px 0}
+.hours div span:last-child{font-variant-numeric:tabular-nums}
+footer{border-top:1px solid var(--line);padding:28px 0 100px;color:var(--muted);font-size:14px}
+.fab{position:fixed;right:18px;bottom:18px;z-index:20;background:#7360f2;color:#fff;text-decoration:none;font-weight:600;padding:14px 20px;border-radius:999px;box-shadow:0 10px 30px rgba(15,42,56,.25)}
+
+@media (max-width:860px){
+  .top nav{display:none}
+  .hero{padding:110px 0 56px}
+  .hero .wrap,.head,.exam,.price-wrap,.contact-grid,.doc-grid{grid-template-columns:1fr}
+  .head{gap:12px}.exam{gap:6px}
+  .scan{max-width:420px}
+  .strip .wrap{grid-template-columns:1fr}
+  .strip div{border-left:0;padding-left:0;border-top:1px solid #2c4c5c}
+  .strip div:first-child{border-top:0}
+  .prep ol{grid-template-columns:1fr}
+  section{padding:68px 0}
+  .doc{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#">
+    <svg viewBox="0 0 26 26" fill="none" aria-hidden="true"><path d="M13 3 3 21h20L13 3Z" stroke="#5fc4cf" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 17c1.5-1.2 3.2-1.8 5-1.8s3.5.6 5 1.8" stroke="#5fc4cf" stroke-width="1.4" stroke-linecap="round"/></svg>
+    Кабінет УЗД на Соборній
+  </a>
+  <nav aria-label="Розділи"><a href="#exams">Дослідження</a><a href="#doctors">Лікарі</a><a href="#prices">Ціни</a><a href="#contacts">Контакти</a></nav>
+</div></header>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <h1 id="h1">Ультразвукова діагностика у Смілі</h1>
+      <p>Для дорослих і дітей. Прийом за записом, можлива жива черга. Соборна, 94 — поруч з музеєм.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="tel:+380963231257">Записатися на УЗД</a>
+        <a class="btn btn-line" href="#prices">Переглянути ціни</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <div><small>Адреса</small>вул. Соборна, 94, Сміла</div>
+  <div><small>Запис</small><a href="tel:+380963231257">096 323 12 57</a></div>
+  <div><small>Графік</small>Пн–Пт 8:00–16:00, Сб 8:00–14:00</div>
+</div></div>
+
+<section id="exams">
+  <div class="wrap">
+    <div class="head"><h2>Дослідження</h2><p>Основні види УЗД, які проводять у кабінеті. Якщо потрібного дослідження немає в списку — уточніть за телефоном.</p></div>
+    <div class="exams">
+      <div class="exam"><h3>Органи черевної порожнини</h3><p>Печінка, жовчний міхур, підшлункова залоза, селезінка.</p></div>
+      <div class="exam"><h3>Нирки та сечовий міхур</h3><p>Нирки, сечовий міхур, сечовивідні шляхи.</p></div>
+      <div class="exam"><h3>Щитоподібна залоза</h3><p>Розміри, структура, вузлові утворення.</p></div>
+      <div class="exam"><h3>Органи малого таза</h3><p>Гінекологічне УЗД для жінок.</p></div>
+      <div class="exam"><h3>Молочні залози</h3><p>Профілактичне обстеження та за направленням лікаря.</p></div>
+      <div class="exam"><h3>Судини</h3><p>Судини шиї та кінцівок.</p></div>
+      <div class="exam"><h3>Дітям</h3><p>УЗД для дітей різного віку.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="doctors" class="docs">
+  <div class="wrap">
+    <div class="head"><h2>Лікарі</h2><p>Дослідження проводять лікарі ультразвукової діагностики кабінету.</p></div>
+    <div class="doc-grid">
+      <div class="doc"><div class="mono">КП</div><div><h3>Пономарьова Катерина Павлівна</h3><p>Лікар ультразвукової діагностики</p></div></div>
+      <div class="doc"><div class="mono">ЮМ</div><div><h3>Мороз Юрій Петрович</h3><p>Лікар ультразвукової діагностики</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap price-wrap">
+    <div>
+      <h2>Ціни</h2>
+      <div class="aside" style="margin-top:18px"><p>Вартість залежить від виду дослідження. Точну ціну назвемо при записі.</p><p>Ціни на сайті оновлюються з таблиці кабінету — тут завжди актуальні цифри.</p></div>
+    </div>
+    <ul id="price-list" aria-label="Перелік цін"></ul>
+  </div>
+</section>
+
+<section class="prep" aria-labelledby="prep-h">
+  <div class="wrap">
+    <div class="head"><h2 id="prep-h">Як підготуватися до УЗД</h2><p>Загальні правила. Точні рекомендації під ваше дослідження скажуть при записі.</p></div>
+    <ol>
+      <li><h3>Уточніть підготовку</h3><p>Під час запису скажіть, яке дослідження потрібне, — вам пояснять, що зробити заздалегідь.</p></li>
+      <li><h3>Черевна порожнина — натщесерце</h3><p>Останній прийом їжі за 6–8 годин до дослідження. Для деяких УЗД потрібен наповнений сечовий міхур.</p></li>
+      <li><h3>Візьміть документи</h3><p>Направлення та попередні результати обстежень, якщо вони є.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="head"><h2>Запис і контакти</h2><p>Телефонуйте або пишіть у Viber — підберемо зручний час.</p></div>
+    <div class="contact-grid">
+      <div><small>Запис</small><a class="big-phone" href="tel:+380963231257">096 323 12 57</a>
+        <div class="alt" style="margin-top:14px"><a href="tel:+380689379520">068 937 95 20</a><a href="tel:+380931515322">093 151 53 22</a></div></div>
+      <div><small>Адреса</small><p>м. Сміла, вул. Соборна, 94</p><p style="color:var(--muted);margin-top:6px">Навпроти колишнього магазину «Вечірні узори», поруч з музеєм</p></div>
+      <div class="hours"><small>Графік</small><div><span>Понеділок — п'ятниця</span><span>8:00–16:00</span></div><div><span>Субота</span><span>8:00–14:00</span></div><div><span>Неділя</span><span>вихідний</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© Кабінет УЗД, Сміла. Інформація на сайті не замінює консультацію лікаря.</div></footer>
+<a class="fab" href="viber://chat?number=%2B380963231257">Viber</a>
+
+<script>
+var FALLBACK_PRICES = [["УЗД органів черевної порожнини",""],["УЗД нирок і сечового міхура",""],["УЗД щитоподібної залози",""],["УЗД органів малого таза",""],["УЗД молочних залоз",""],["УЗД судин",""],["УЗД для дітей",""]];
+</script>
+<script>// Ціни: вставте посилання на Google-таблицю, опубліковану як CSV
+// (Файл → Поділитися → Опублікувати в інтернеті → CSV). Колонки: Послуга, Ціна.
+var SHEET_CSV_URL = "";
+function renderPrices(rows){var ul=document.getElementById('price-list');ul.innerHTML='';rows.forEach(function(r){if(!r[0])return;var li=document.createElement('li');var a=document.createElement('span');a.className='n';a.textContent=r[0];var d=document.createElement('span');d.className='dots';var b=document.createElement('span');b.className='v';b.textContent=r[1]||'уточнюйте';li.appendChild(a);li.appendChild(d);li.appendChild(b);ul.appendChild(li);});}
+function parseCSV(t){return t.trim().split(/\r?\n/).slice(1).map(function(l){var m=l.match(/("([^"]|"")*"|[^,]*)(,|$)/g)||[];return m.map(function(c){return c.replace(/,$/,'').replace(/^"|"$/g,'').replace(/""/g,'"').trim();});});}
+renderPrices(FALLBACK_PRICES);
+if(SHEET_CSV_URL){fetch(SHEET_CSV_URL).then(function(r){return r.text();}).then(function(t){var rows=parseCSV(t);if(rows.length)renderPrices(rows);}).catch(function(){});}
+</script>
+</body>
+</html>
